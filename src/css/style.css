@@ -1,0 +1,33 @@
+.rss-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    width: 600px;
+    overflow-y: auto;
+  }
+  
+  #rss-feed {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .entry {
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .title a{
+    text-decoration: none;
+  }
+
+  .title a:hover{
+    text-decoration: underline;
+  }
+  
+  .summary {
+    font-size: 14px;
+  }

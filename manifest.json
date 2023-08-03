@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Feed do Blog Aprenda e Crie",
+    "version": "1.0",
+    "description": "Exibe os últimos 5 feeds do nosso blog.",
+    "action": {
+      "default_popup": "popup.html"
+    },
+    "icons": {
+      "48": "icon.png"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting"
+    ],
+    "background": {
+      "service_worker": "src/js/background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+          "src/js/scripts.js"
+        ],
+        "css": [
+          "src/css/style.css"
+        ]
+      }
+    ]
+  }
