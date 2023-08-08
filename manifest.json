@@ -1,13 +1,15 @@
 {
     "manifest_version": 3,
     "name": "Feed do Blog Aprenda e Crie",
+    "homepage_url": "https://www.aprendaecrie.com/",
+    "author": "Blog Aprenda e Crie",
     "version": "1.0",
     "description": "Exibe os últimos 5 feeds do nosso blog.",
     "action": {
       "default_popup": "popup.html"
     },
     "icons": {
-      "48": "icon.png"
+      "48": "src/icon/icon.png"
     },
     "permissions": [
         "activeTab",

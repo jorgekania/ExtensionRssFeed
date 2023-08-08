@@ -11,8 +11,8 @@ function fetchAndDisplayRSSFeed() {
             const parser = new DOMParser();
             const xml = parser.parseFromString(data, "application/xml");
             const entries = xml.querySelectorAll("entry");
-
             let articlesHTML = "";
+
             for (let i = 0; i < Math.min(entries.length, numArticles); i++) {
                 const entry = entries[i];
                 const title = entry.querySelector("title").textContent;
@@ -39,7 +39,7 @@ function fetchAndDisplayRSSFeed() {
                             <div class="summary">${summary}</div>
                         </div>
                         <div class="card-footer">
-                            <small class="text-body-secondary">Atualizado em ${dataFormatted} - por: <b>${author}</b></small>
+                            <small class="text-body-secondary">Publicado em ${dataFormatted} - por: <b>${author}</b></small>
                         </div>
                     </div>
                     `;
@@ -47,7 +47,9 @@ function fetchAndDisplayRSSFeed() {
                 articlesHTML += articleHTML;
             }
 
-            rssFeedDiv.innerHTML = articlesHTML;
+            if (rssFeedDiv) {
+                rssFeedDiv.innerHTML += articlesHTML;
+            }
         });
 }
 
@@ -66,4 +68,6 @@ function adjustDateToFormatDesired(dateISO) {
 
 
 // Carrega os artigos do feed ao abrir a extensão
-fetchAndDisplayRSSFeed();
+document.addEventListener("DOMContentLoaded", () => {
+    fetchAndDisplayRSSFeed();
+});
