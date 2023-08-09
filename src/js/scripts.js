@@ -11,7 +11,13 @@ function fetchAndDisplayRSSFeed() {
             const parser = new DOMParser();
             const xml = parser.parseFromString(data, "application/xml");
             const entries = xml.querySelectorAll("entry");
-            let articlesHTML = "";
+            let articlesHTML = `
+            <div class="text-center">
+                <a href="https://www.aprendaecrie.com" target="_blank" class="text-warning">
+                    <img src="https://aprendaecrie.com/img/logo/logo-1000x1000-rocket.png" alt="Blog Aprenda e Crie" width="150px">
+                </a>
+            </div>
+            `;
 
             for (let i = 0; i < Math.min(entries.length, numArticles); i++) {
                 const entry = entries[i];
@@ -48,6 +54,17 @@ function fetchAndDisplayRSSFeed() {
             }
 
             if (rssFeedDiv) {
+
+                articlesHTML += `
+                <span class="badge text-bg-primary w-100">
+                    <h4>Acesse todo nosso conteúdo em
+                        <a href="https://www.aprendaecrie.com" target="_blank" class="text-warning">
+                            aprendaecrie.com
+                        </a>
+                    </h4>
+                </span>        
+                `;
+
                 rssFeedDiv.innerHTML += articlesHTML;
             }
         });
