@@ -1,2 +1,2 @@
-# RssFeed
-Creating an rss feed reader extension to be used in browsers
+# ExtensionRssFeed
+Extension for Google Chrome or Edge with Rss Feed
